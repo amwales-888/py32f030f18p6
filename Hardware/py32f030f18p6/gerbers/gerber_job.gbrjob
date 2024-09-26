@@ -1,7 +1,7 @@
 {
     "Header": {
         "Comment": "All values are metric (mm)",
-        "CreationDate": "2024-09-20T10:40:42Z",
+        "CreationDate": "2024-09-24T17:16:18Z",
         "GenerationSoftware": {
             "Application": "EAGLE",
             "Vendor": "Autodesk",
@@ -13,7 +13,7 @@
         "BoardThickness": 1.67,
         "LayerNumber": 2,
         "Name": {
-            "ProjectId": "py32f030f18p6-revb"
+            "ProjectId": "py32f030f18p6"
         },
         "Owner": "  <>",
         "Size": {
