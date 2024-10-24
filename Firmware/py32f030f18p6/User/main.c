@@ -21,7 +21,6 @@
   */
 
 #include "main.h"
-//#include "py32f0xx_bsp_printf.h"
 
 
 static void APP_SystemClockConfig(void);
@@ -33,13 +32,10 @@ int main(void)
   APP_SystemClockConfig();
   APP_GPIOConfig();
 
-//  BSP_USART_Config(115200);
-//  printf("PY32F0xx GPIO Example\r\nClock: %ld\r\n", SystemCoreClock);
 
   while (1)
   {
-    LL_GPIO_TogglePin(GPIOA, LL_GPIO_PIN_8);
-//    printf("echo\r\n");
+    LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_5);
     LL_mDelay(1000);
   }
 }
@@ -61,9 +57,8 @@ static void APP_SystemClockConfig(void)
 
 static void APP_GPIOConfig(void)
 {
-  // PA0
-  LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOA);
-  LL_GPIO_SetPinMode(GPIOA, LL_GPIO_PIN_8, LL_GPIO_MODE_OUTPUT);
+  LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOB);
+  LL_GPIO_SetPinMode(GPIOB, LL_GPIO_PIN_5, LL_GPIO_MODE_OUTPUT);
 }
 
 void APP_ErrorHandler(void)
