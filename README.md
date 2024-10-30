@@ -10,5 +10,11 @@ Simple breakout board for py32f030f18p6
 - 1 Button connected to RESET pin, pulled high.
 - 3 pin header used to select bootloader.
 
-![Board Top](Hardware/py32f030f18p6/images/py32f030f18p6-Top.png)
-![Board Bottom](Hardware/py32f030f18p6/images/py32f030f18p6-Bot.png)
+<table>
+  <tr>
+    <td> <img src="Hardware/py32f030f18p6/images/py32f030f18p6-Top.png"></td>
+  </tr>
+  <tr>
+    <td> <img src="Hardware/py32f030f18p6/images/py32f030f18p6-Bot.png"></td>
+  </tr>
+</table>
