@@ -20,3 +20,12 @@ Simple breakout board for py32f030f18p6
     <td> <img src="Hardware/py32f030f18p6/KiCAD/images/Capture-bot.JPG"></td>
   </tr>
 </table>
+
+Resources
+
+<li>https://www.puyasemi.com/en/py32_series.html</li>
+<li>https://www.eevblog.com/forum/microcontrollers/$0-11-py32f002a-m0-24mhz-320kb-actually-324kb-more-peripherals/</li>
+<li>https://www.cnblogs.com/milton/p/18168592</li>
+<li>https://github.com/IOsetting/py32f0-template/tree/main</li>
+<li>https://www.cnblogs.com/milton/p/17111286.html</li>
+<li>https://www.cnblogs.com/milton/p/18168592</li>
