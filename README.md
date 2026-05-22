@@ -40,4 +40,4 @@ Resources
 
 <BR>
 
-Notes - Assembled board without crystal and flashed and tested with simple LED blink/UART code via the connected via USB. Used jlink clone connected via SWD and built with keil uvision, connected jlink to reset pin. Have not tested bootloader configuration yet.
+Notes - Assembled board with 24Mhz crystal, flashed and tested with simple LED blink/UART code via the connected via USB. Used jlink clone connected via SWD and built with keil uvision, connected jlink to reset pin. Verified running at 48Mhz by timing blink rate of LED. Have not tested bootloader configuration yet.
