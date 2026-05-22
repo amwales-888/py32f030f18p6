@@ -24,11 +24,12 @@
 #include "py32f0xx_ll_gpio.h"
 #include "py32f0xx_ll_usart.h"
 
+#define USE24MHZCRYSTAL
 
 static void APP_SystemClockConfig(void);
 static void APP_GPIOConfig(void);
 static void APP_ConfigUsart(USART_TypeDef *USARTx);
-static int APP_UsartReceiveByte(USART_TypeDef *USARTx, uint8_t *ptr);
+//static int APP_UsartReceiveByte(USART_TypeDef *USARTx, uint8_t *ptr);
 static int APP_UsartSendByte(USART_TypeDef *USARTx, uint8_t b);
 
 static void outputMessage(void) {
@@ -50,8 +51,7 @@ int main(void)
   APP_GPIOConfig();
 	
 	APP_ConfigUsart(USART1);
-	
-	
+		
   while (1)
   {
 		outputMessage();
@@ -62,6 +62,20 @@ int main(void)
 
 static void APP_SystemClockConfig(void)
 {
+#ifdef USE24MHZCRYSTAL
+	LL_UTILS_ClkInitTypeDef UTILS_ClkInitStruct;
+	LL_RCC_HSI_Enable();
+	LL_RCC_HSE_SetFreqRegion(LL_RCC_HSE_16_32MHz);
+
+	while(LL_RCC_HSI_IsReady() != 1);
+
+	UTILS_ClkInitStruct.AHBCLKDivider = LL_RCC_SYSCLK_DIV_1;
+	UTILS_ClkInitStruct.APB1CLKDivider = LL_RCC_APB1_DIV_1;
+	LL_PLL_ConfigSystemClock_HSE(24000000U, LL_UTILS_HSEBYPASS_OFF, &UTILS_ClkInitStruct);
+
+	/* Re-init frequency of SysTick source, reload = freq/ticks = 48000000/1000 = 48000 */
+	LL_InitTick(48000000, 1000U);	
+#else
   LL_RCC_HSI_Enable();
   while(LL_RCC_HSI_IsReady() != 1);
 
@@ -72,6 +86,7 @@ static void APP_SystemClockConfig(void)
   LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
   LL_Init1msTick(8000000);
   LL_SetSystemCoreClock(8000000);
+#endif
 }
 
 
@@ -149,15 +164,15 @@ static void APP_ConfigUsart(USART_TypeDef *USARTx)
 }
 
 
-static int APP_UsartReceiveByte(USART_TypeDef *USARTx, uint8_t *ptr) {
-	
-	if (LL_USART_IsActiveFlag_RXNE(USARTx) == 1) {
-		*ptr = LL_USART_ReceiveData8(USARTx);
-		return 1;
-	}
-	
-	return 0;
-}
+//static int APP_UsartReceiveByte(USART_TypeDef *USARTx, uint8_t *ptr) {
+//	
+//	if (LL_USART_IsActiveFlag_RXNE(USARTx) == 1) {
+//		*ptr = LL_USART_ReceiveData8(USARTx);
+//		return 1;
+//	}
+//	
+//	return 0;
+//}
 
 static int APP_UsartSendByte(USART_TypeDef *USARTx, uint8_t b) {
 	
