@@ -19,6 +19,13 @@ Simple breakout board for py32f030f18p6
     <td> <img src="Hardware/py32f030f18p6/KiCAD/images/Capture-top.JPG"></td>
     <td> <img src="Hardware/py32f030f18p6/KiCAD/images/Capture-bot.JPG"></td>
   </tr>
+  <tr>
+    <td> <img src="Hardware/images/PXL_20260507_084733750.jpg"></td>
+    <td> <img src="Hardware/images/PXL_20260507_084807174.jpg"></td>
+  </tr>
+  <tr>
+    <td> <img src="Hardware/images/PXL_20260522_095710123.jpg"></td>
+  </tr>
 </table>
 
 Resources
@@ -33,6 +40,4 @@ Resources
 
 <BR>
 
-Notes - The attached firmware was written for the deprecated board produced with EAGLE, since then I have replaced the 
-oscillator with a crystal and may have changed the IO pin for LED0/SW0 review the code before using it. I will update 
-it when I have time.
+Notes - Assembled board without crystal and flashed and tested with simple LED blink/UART code via the connected via USB. Used jlink clone connected via SWD and built with keil uvision, connected jlink to reset pin. Have not tested bootloader configuration yet.
